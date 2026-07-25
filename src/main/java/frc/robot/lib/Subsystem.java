@@ -5,12 +5,12 @@
 package frc.robot.lib;
 
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
-
+import frc.robot.Constants;
 /** Add your docs here. */
 public abstract class Subsystem extends SubsystemBase{
     public void stop(){}
     public void zeroSensors(){}
-    public Boolean isReady(){return true;}
+    public Boolean isJammed(){return true;}
 
     public void emptyMethod(){};
     public Runnable activeStatePeriodic = ()->emptyMethod();
@@ -24,4 +24,7 @@ public abstract class Subsystem extends SubsystemBase{
         readPeriodicInputs();
         writePeriodicOutputs();
     }
+    public Runnable[] initMethods = new Runnable[Constants.RobotStateConstants.stateCount];
+    public Runnable[] periodicMethods = new Runnable[Constants.RobotStateConstants.stateCount];
+    public Runnable[] enderMethods = new Runnable[Constants.RobotStateConstants.stateCount];
 }

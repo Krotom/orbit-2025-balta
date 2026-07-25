@@ -1,7 +1,6 @@
 package frc.robot.lib.controller;
 
 import edu.wpi.first.wpilibj2.command.button.CommandPS4Controller;
-import edu.wpi.first.wpilibj2.command.button.Trigger;
 
 public class PS4Controller implements UniversalController {
     private CommandPS4Controller controller;
@@ -24,25 +23,4 @@ public class PS4Controller implements UniversalController {
     public double getDriveRotationAxis() {
         return -controller.getRightX();
     }
-
-    @Override
-    public Trigger getIntakeButton() {
-        return controller.square();
-    }
-
-    @Override
-    public Trigger getIdleButton() {
-        return controller.triangle();
-    }
-
-    @Override
-    public Trigger getShootButton() {
-        return controller.R2();
-    }
-
-    @Override
-    public Trigger getShootOnTheMoveButton() {
-        return controller.L2();
-    }
-    
 }
