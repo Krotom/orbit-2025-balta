@@ -19,7 +19,7 @@ public class SuperStructure extends Subsystem {
         intakingAlgea(2),
         placeAlgea(3),
         placeCoral(4),
-        climb(5);
+        climbing(5);
 
         public final int stateNum;
 

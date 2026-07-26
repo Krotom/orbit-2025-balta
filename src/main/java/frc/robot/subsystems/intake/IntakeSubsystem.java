@@ -20,14 +20,14 @@ public class IntakeSubsystem extends Subsystem {
 
     private static IntakeSubsystem instance;
 
-    public static IntakeSubsystem getInstance() {
+    public static Subsystem getInstance() {
         if (instance == null) {
             instance = new IntakeSubsystem();
         }
         return instance;
     }
 
-    public IntakeSubsystem subsystem() {
+    public static IntakeSubsystem subsystem() {
         if (instance == null) {
             instance = new IntakeSubsystem();
         }
@@ -35,10 +35,10 @@ public class IntakeSubsystem extends Subsystem {
     }
 
     private Trigger currentSpikingTrigger = new Trigger((BooleanSupplier) () -> isCurrentSpiking());
-    private TalonFX indexerRightMotor = new TalonFX(0);
-    private TalonFX indexerLeftMotor = new TalonFX(0);
-    private final TalonFX intakeDriver = new TalonFX(0);
-    private final TalonFX intakeRoller = new TalonFX(0);
+    private TalonFX indexerRightMotor = new TalonFX(INDEXER_RIGHT_MOTOR_ID);
+    private TalonFX indexerLeftMotor = new TalonFX(INDEXER_LEFT_MOTOR_ID);
+    private final TalonFX intakeDriver = new TalonFX(INTAKE_DRIVE_MOTOR_ID);
+    private final TalonFX intakeRoller = new TalonFX(INTAKE_ROLLER_MOTOR_ID);
     private final MotionMagicVoltage MotionMagic = new MotionMagicVoltage(0).withEnableFOC(true);
     private final VoltageOut voltage = new VoltageOut(0).withEnableFOC(true);
 
@@ -59,7 +59,7 @@ public class IntakeSubsystem extends Subsystem {
         initMethods[SuperStructure.RobotStates.placeAlgea.stateNum] = () -> {
             openIntake(false);
         };
-        initMethods[SuperStructure.RobotStates.climb.stateNum] = () -> {
+        initMethods[SuperStructure.RobotStates.climbing.stateNum] = () -> {
             openIntake(false);
         };
         periodicMethods[SuperStructure.RobotStates.idle.stateNum] = () -> {
@@ -78,7 +78,7 @@ public class IntakeSubsystem extends Subsystem {
         periodicMethods[SuperStructure.RobotStates.placeAlgea.stateNum] = () -> {
             openIntake(false);
         };
-        periodicMethods[SuperStructure.RobotStates.climb.stateNum] = () -> {
+        periodicMethods[SuperStructure.RobotStates.climbing.stateNum] = () -> {
             openIntake(false);
         };
         enderMethods[SuperStructure.RobotStates.idle.stateNum] = () -> {
@@ -90,7 +90,7 @@ public class IntakeSubsystem extends Subsystem {
         enderMethods[SuperStructure.RobotStates.intakingAlgea.stateNum] = () -> {
             stop();
         };
-        enderMethods[SuperStructure.RobotStates.climb.stateNum] = () -> {
+        enderMethods[SuperStructure.RobotStates.climbing.stateNum] = () -> {
             stop();
         };
         currentSpikingTrigger.onTrue(getIntakeSequenceCommand());
@@ -160,6 +160,6 @@ public class IntakeSubsystem extends Subsystem {
                         .withTimeout(2),
 
                 new RunCommand(() -> stopMotors(), this))
-                        .withTimeout(0.1);
+                        .withTimeout(0.1    );
     }
 }

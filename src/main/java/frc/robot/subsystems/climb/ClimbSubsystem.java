@@ -6,8 +6,9 @@ package frc.robot.subsystems.climb;
 
 import com.ctre.phoenix6.controls.MotionMagicVoltage;
 import com.ctre.phoenix6.hardware.TalonFX;
-
+import static frc.robot.Constants.ClimbConstants.*;
 import frc.robot.lib.Subsystem;
+
 
 public class ClimbSubsystem extends Subsystem {
   private static ClimbSubsystem instance;
@@ -25,10 +26,11 @@ public class ClimbSubsystem extends Subsystem {
     return instance;
   }
 
-  private TalonFX climbMotor = new TalonFX(0);
+  private TalonFX climbMotor = new TalonFX(CLIMB_MOTOR_ID);
   private MotionMagicVoltage MotionMagic = new MotionMagicVoltage(0).withEnableFOC(true);
 
   public ClimbSubsystem() {
+    
   }
 
   private void setMotorPos(boolean open) {
