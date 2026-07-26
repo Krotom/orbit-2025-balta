@@ -6,20 +6,29 @@ import frc.robot.lib.Subsystem;
 
 public class SuperStructure extends Subsystem {
     private final ArrayList<Subsystem> subsystems;
+    private static SuperStructure instance;
 
     public SuperStructure(ArrayList<Subsystem> subsystems) {
         this.subsystems = subsystems;
     }
 
+
+    
+
+
     private RobotStates currentState = RobotStates.idle;
 
     public enum RobotStates {
         idle(0),
-        intakingCoral(1),
-        intakingAlgea(2),
-        placeAlgea(3),
-        placeCoral(4),
-        climb(5);
+        intakingCoralL1(1),
+        intakingCoralL2(2),
+        intakingCoralL3(3),
+        intakingCoralL4(4),
+        intakingAlgeaLP(5),
+        intakingAlgeaHP(6),
+        placeAlgea(7),
+        placeCoral(8),
+        climbing(9);
 
         public final int stateNum;
 
@@ -43,6 +52,10 @@ public class SuperStructure extends Subsystem {
         for (Subsystem subsystem : subsystems) {
             subsystem.initMethods[currentState.stateNum].run();
         }
+    }
+
+    public RobotStates getCurrentState() {
+        return currentState;
     }
 
 }
