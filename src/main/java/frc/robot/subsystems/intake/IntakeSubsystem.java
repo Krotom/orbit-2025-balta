@@ -46,11 +46,26 @@ public class IntakeSubsystem extends Subsystem {
         initMethods[SuperStructure.RobotStates.idle.stateNum] = () -> {
             stop();
         };
-        initMethods[SuperStructure.RobotStates.intakingCoral.stateNum] = () -> {
+        initMethods[SuperStructure.RobotStates.intakingCoralL1.stateNum] = () -> {
             openIntake(true);
             driveIntake();
         };
-        initMethods[SuperStructure.RobotStates.intakingAlgea.stateNum] = () -> {
+        initMethods[SuperStructure.RobotStates.intakingCoralL2.stateNum] = () -> {
+            openIntake(true);
+            driveIntake();
+        };
+        initMethods[SuperStructure.RobotStates.intakingCoralL3.stateNum] = () -> {
+            openIntake(true);
+            driveIntake();
+        };
+        initMethods[SuperStructure.RobotStates.intakingCoralL4.stateNum] = () -> {
+            openIntake(true);
+            driveIntake();
+        };
+        initMethods[SuperStructure.RobotStates.intakingAlgeaLP.stateNum] = () -> {
+            openIntake(false);
+        };
+        initMethods[SuperStructure.RobotStates.intakingAlgeaHP.stateNum] = () -> {
             openIntake(false);
         };
         initMethods[SuperStructure.RobotStates.placeCoral.stateNum] = () -> {
@@ -65,11 +80,26 @@ public class IntakeSubsystem extends Subsystem {
         periodicMethods[SuperStructure.RobotStates.idle.stateNum] = () -> {
             stop();
         };
-        periodicMethods[SuperStructure.RobotStates.intakingCoral.stateNum] = () -> {
+        periodicMethods[SuperStructure.RobotStates.intakingCoralL1.stateNum] = () -> {
             openIntake(true);
             driveIntake();
         };
-        periodicMethods[SuperStructure.RobotStates.intakingAlgea.stateNum] = () -> {
+        periodicMethods[SuperStructure.RobotStates.intakingCoralL2.stateNum] = () -> {
+            openIntake(true);
+            driveIntake();
+        };
+        periodicMethods[SuperStructure.RobotStates.intakingCoralL3.stateNum] = () -> {
+            openIntake(true);
+            driveIntake();
+        };
+        periodicMethods[SuperStructure.RobotStates.intakingCoralL4.stateNum] = () -> {
+            openIntake(true);
+            driveIntake();
+        };
+        periodicMethods[SuperStructure.RobotStates.intakingAlgeaLP.stateNum] = () -> {
+            openIntake(false);
+        };
+        periodicMethods[SuperStructure.RobotStates.intakingAlgeaHP.stateNum] = () -> {
             openIntake(false);
         };
         periodicMethods[SuperStructure.RobotStates.placeCoral.stateNum] = () -> {
@@ -84,10 +114,22 @@ public class IntakeSubsystem extends Subsystem {
         enderMethods[SuperStructure.RobotStates.idle.stateNum] = () -> {
             stop();
         };
-        enderMethods[SuperStructure.RobotStates.intakingCoral.stateNum] = () -> {
+        enderMethods[SuperStructure.RobotStates.intakingCoralL1.stateNum] = () -> {
             stop();
         };
-        enderMethods[SuperStructure.RobotStates.intakingAlgea.stateNum] = () -> {
+        enderMethods[SuperStructure.RobotStates.intakingCoralL2.stateNum] = () -> {
+            stop();
+        };
+        enderMethods[SuperStructure.RobotStates.intakingCoralL3.stateNum] = () -> {
+            stop();
+        };
+        enderMethods[SuperStructure.RobotStates.intakingCoralL4.stateNum] = () -> {
+            stop();
+        };
+        enderMethods[SuperStructure.RobotStates.intakingAlgeaLP.stateNum] = () -> {
+            stop();
+        };
+        enderMethods[SuperStructure.RobotStates.intakingAlgeaHP.stateNum] = () -> {
             stop();
         };
         enderMethods[SuperStructure.RobotStates.climbing.stateNum] = () -> {
