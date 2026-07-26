@@ -1,7 +1,5 @@
 package frc.robot;
 
-import edu.wpi.first.wpilibj.DriverStation;
-
 public class Constants {
     public static class RobotStateConstants{
         public static final Integer stateCount = 3;
@@ -22,8 +20,9 @@ public class Constants {
         public static final String limelightName = "balta-limelight";
     }
 
-    public static class FieldConstants [
-        public static final var allianceColor = DriverStation.getAlliance();
-        public static final ArrayList<int> BLUE_REEF_TAGS = {};
-    ]
+    public static class FieldConstants {
+        public static final int[] BLUE_REEF_TAGS = {17, 18, 19, 20, 21, 22};
+        public static final int[] RED_REEF_TAGS = {6, 7, 8, 9, 10, 11};
+        public static final int[] ALL_REEF_TAGS = {6, 7, 8, 9, 10, 11, 17, 18, 19, 20, 21, 22};
+    }
 }
