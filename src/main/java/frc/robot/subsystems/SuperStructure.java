@@ -8,26 +8,30 @@ public class SuperStructure extends Subsystem {
     private final ArrayList<Subsystem> subsystems;
     private static SuperStructure instance;
 
-    public SuperStructure(ArrayList<Subsystem> subsystems) {
-        this.subsystems = subsystems;
+    public SuperStructure() {
+        this.subsystems = new ArrayList<>();
     }
 
-
-    
+    public static SuperStructure getInstance() {
+        if (instance == null) {
+            instance = new SuperStructure();
+        }
+        return instance;
+    }  
 
 
     private RobotStates currentState = RobotStates.idle;
 
     public enum RobotStates {
         idle(0),
-        intakingCoralL1(1),
-        intakingCoralL2(2),
-        intakingCoralL3(3),
-        intakingCoralL4(4),
-        intakingAlgeaLP(5),
-        intakingAlgeaHP(6),
-        placeAlgea(7),
-        placeCoral(8),
+        placingCoralL1(1),
+        placingCoralL2(2),
+        placingCoralL3(3),
+        placingCoralL4(4),
+        placingAlgeaLP(5),
+        placingAlgeaHP(6),
+        intakingAlgea(7),
+        intakingCoral(8),
         climbing(9);
 
         public final int stateNum;
@@ -35,6 +39,10 @@ public class SuperStructure extends Subsystem {
         RobotStates(int stateNum) {
             this.stateNum = stateNum;
         }
+    }
+
+    public void addSubsystem(Subsystem subsystem) {
+        subsystems.add(subsystem);
     }
 
     @Override

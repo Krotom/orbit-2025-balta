@@ -8,6 +8,7 @@ import com.ctre.phoenix6.controls.MotionMagicVoltage;
 import com.ctre.phoenix6.hardware.TalonFX;
 import static frc.robot.Constants.ClimbConstants.*;
 import frc.robot.lib.Subsystem;
+import frc.robot.subsystems.SuperStructure;
 
 
 public class ClimbSubsystem extends Subsystem {
@@ -34,10 +35,13 @@ public class ClimbSubsystem extends Subsystem {
   }
 
   private void setMotorPos(boolean open) {
-    if (open)
+    if (open) {
       climbMotor.setControl(MotionMagic.withPosition(90));
-    else
+      SuperStructure.getInstance().changeState(SuperStructure.RobotStates.climbing);
+    } else {
       climbMotor.setControl(MotionMagic.withPosition(0));
+      SuperStructure.getInstance().changeState(SuperStructure.RobotStates.idle);
+    }
     isOpen = open;
   }
 
