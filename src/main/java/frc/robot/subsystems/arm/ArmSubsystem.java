@@ -64,7 +64,8 @@ public class ArmSubsystem extends Subsystem{
             stop();
         };
         periodicMethods[SuperStructure.RobotStates.intakingCoralL1.stateNum] = () -> {
-           
+           setPos(0);
+           driveElev();
         };
         periodicMethods[SuperStructure.RobotStates.intakingCoralL2.stateNum] = () -> {
             

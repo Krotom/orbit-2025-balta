@@ -35,10 +35,15 @@ public class SuperStructure extends Subsystem {
         climbing(9);
 
         public final int stateNum;
+        public Target target;
+        
 
         RobotStates(int stateNum) {
             this.stateNum = stateNum;
         }
+    }
+    public enum Target{
+        L1, L2, L3, L4, LP, HP
     }
 
     public void addSubsystem(Subsystem subsystem) {
